@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>刺身にタンポポを乗せるゲーム</title>
+    <style>
+      #imgsDiv{
+        position: relative;
+        width: 500px;
+      }
+      #sashimiImg{
+        width: 100%;
+      }
+      .tanpopo{
+        position: absolute;
+        width: 15%;
+      }
+      #counter{
+        font-size: 25px;
+      }
+      #funcDescription{
+        background-color: skyblue;
+        width: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>
+      刺身にタンポポを810個乗せたらクリアのゲーム
+    </h2>
+    <div id='funcDescription'>
+      <div>window.putTmpp()は引数の値の個数だけタンポポを置く関数です。</div>
+      <div>構文 : putTmpp(number)</div>
+    </div>
+    <div id='counter'>
+      カウント : 0個　↓Click!
+    </div>
+    <div id='imgsDiv'>
+      <img src='./food_sashimi.png' id='sashimiImg'>
+    </div>
+    <div>※ただの悪ふざけなので元ネタを馬鹿にする意図はありません</div>
+    
+    <script>
+      const sashimiImg = document.getElementById('sashimiImg'),
+            mainDiv = document.getElementById('imgsDiv'),
+            counterDiv = document.getElementById('counter')
+      let leftpx = 65, toppx = 20, count = 0
+      sashimiImg.addEventListener('click',()=>putTmpp(1),true)
+      function putTmpp(num){
+        for(var i = 0;i<num;i++){
+          const ele = document.createElement('img')
+          ele.src = './tntn.png';ele.classList.add('tanpopo');ele.style = `left:${leftpx}px;top:${toppx}px`
+          mainDiv.appendChild(ele)
+          leftpx += 10;
+          if(leftpx > 400){
+            leftpx = 65
+            toppx += 10
+          }
+          count++
+          counterDiv.innerText = `カウント : ${count}個　↓Click!`
+        }
+        if(count >= 810)counterDiv.innerText = 'GAME CLEAR!!!'
+      }
+    </script>
+  </body>
+</html>
