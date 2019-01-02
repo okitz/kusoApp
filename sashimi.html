@@ -2,13 +2,26 @@
 <html>
   <head>
     <title>刺身にタンポポを乗せるゲーム</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <style>
       #imgsDiv{
         position: relative;
         width: 500px;
       }
+      #funcDescription{
+        background-color: skyblue;
+        width: 500px;
+      }
+      @media only screen and (max-width: 979){
+        #imgDiv{
+          width: 85%;
+        }
+        #funcDescription{
+          width: 85%;
+        }
+      }
       #sashimiImg{
-        width: 95%;
+        width: 85%;
       }
       .tanpopo{
         position: absolute;
@@ -17,10 +30,7 @@
       #counter{
         font-size: 25px;
       }
-      #funcDescription{
-        background-color: skyblue;
-        width: 500px;
-      }
+
     </style>
   </head>
   <body>
