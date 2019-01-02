@@ -35,7 +35,7 @@
       カウント : 0個　↓Click!
     </div>
     <div id='imgsDiv'>
-      <img src='./food_sashimi.png' id='sashimiImg'>
+      <img src='./img/food_sashimi.png' id='sashimiImg'>
     </div>
     <div>※ただの悪ふざけなので元ネタを馬鹿にする意図はありません</div>
     
@@ -48,7 +48,7 @@
       function putTmpp(num){
         for(var i = 0;i<num;i++){
           const ele = document.createElement('img')
-          ele.src = './tntn.png';ele.classList.add('tanpopo');ele.style = `left:${leftpx}px;top:${toppx}px`
+          ele.src = './img/tntn.png';ele.classList.add('tanpopo');ele.style = `left:${leftpx}px;top:${toppx}px`
           mainDiv.appendChild(ele)
           leftpx += 10;
           if(leftpx > 400){
