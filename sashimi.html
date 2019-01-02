@@ -45,15 +45,18 @@
             counterDiv = document.getElementById('counter')
       let leftpx = 65, toppx = 20, count = 0
       sashimiImg.addEventListener('click',()=>putTmpp(1),true)
+      const originalElm = document.createElement('img')
+      originalElm.src = './img/tntn.png';originalElm.classList.add('tanpopo');
       function putTmpp(num){
-        for(var i = 0;i<num;i++){
-          const ele = document.createElement('img')
-          ele.src = './img/tntn.png';ele.classList.add('tanpopo');ele.style = `left:${leftpx}px;top:${toppx}px`
-          mainDiv.appendChild(ele)
-          leftpx += 10;
-          if(leftpx > 400){
+        for(let i = 0;i<num;i++){
+          const imgElm = originalElm.cloneNode()
+          imgElm.style = `left:${leftpx}px;top:${toppx}px;`
+          mainDiv.appendChild(imgElm)
+          if(leftpx > 390){
             leftpx = 65
             toppx += 10
+          }else{
+            leftpx += 10
           }
           count++
           counterDiv.innerText = `カウント : ${count}個　↓Click!`
