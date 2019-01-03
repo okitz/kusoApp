@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>無限にお金がもらえるゲーム</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <style>
+      @media only screen and (min-width: 979){
+        #imgsDiv{
+          position: relative;
+          width: 500px;
+        }
+      }
+
+      @media only screen and (max-width: 979){
+        #imgDiv{
+          width: 85%;
+        }
+      }
+      #sashimiImg{
+        width: 85%;
+      }
+      .tanpopo{
+        position: absolute;
+        width: 30%;
+      }
+      #counter{
+        font-size: 25px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id='imgsDiv'>
+      <img src='./img/saifu_gamaguchi.png' id='sashimiImg'>
+    </div>
+    <h2>
+        無限にお金がもらえるゲーム
+      </h2>
+      <div id='counter'>
+        カウント : 0個　↑Click!
+      </div>
+    <script>
+      const sashimiImg = document.getElementById('sashimiImg'),
+            mainDiv = document.getElementById('imgsDiv'),
+            counterDiv = document.getElementById('counter')
+      let leftpx = 65, toppx = 20, count = 0
+      sashimiImg.addEventListener('click',()=>putTmpp(1),true)
+      const originalElm = document.createElement('img')
+      originalElm.src = './img/money_yen_bill3.png';originalElm.classList.add('tanpopo');
+      function putTmpp(num){
+        for(let i = 0;i<num;i++){
+          const imgElm = originalElm.cloneNode()
+          imgElm.style = `left:${leftpx}px;top:${toppx}px;`
+          mainDiv.appendChild(imgElm)
+          if(leftpx > 390){
+            leftpx = 65
+            toppx += 10
+          }else{
+            leftpx += 10
+          }
+          count++
+          counterDiv.innerText = `カウント : ${count}個　↓Click!`
+        }
+        if(count >= 810)counterDiv.innerText = 'GAME CLEAR!!!'
+      }
+    </script>
+  </body>
+</html>
