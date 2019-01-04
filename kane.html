@@ -22,8 +22,12 @@
       .tanpopo{
         position: absolute;
         width: 30%;
+        z-index: 0;
       }
       #counter{
+        display:block;
+        position:relative;
+        z-index:9998;
         font-size: 25px;
       }
 
@@ -61,7 +65,6 @@
           count++
           counterDiv.innerText = `カウント : ${count}個　↑Click!`
         }
-        if(count >= 810)counterDiv.innerText = 'GAME CLEAR!!!'
       }
     </script>
   </body>
